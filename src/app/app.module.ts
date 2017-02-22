@@ -7,21 +7,32 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import {MaterialModule} from "@angular/material";
-import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HomeComponent } from './home/home.component'
+import {Routes, RouterModule} from "@angular/router";
 
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path:'reviews', component: ReviewsComponent},
+  { path: 'users', component: UsersComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    ToolbarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     Angular2FontawesomeModule,
-    MaterialModule.forRoot()
+    MaterialModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

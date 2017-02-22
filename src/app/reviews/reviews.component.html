@@ -5,12 +5,15 @@
           <p>Rate : {{review.rate}}</p>
           <p>Description : {{review.description}}</p>
         </md-card-content>
-        <Button md-button>Edit</Button>
+        <button md-raised-button [color]="'primary'">Edit</button>
       </md-card>
 
       <md-input-container>
-        <input reviewName placeholder="Name.." [(ngModel)]="name">
-        <input reviewRate placeholder="Rate.." [(ngModel)]="rate">
+        <input mdInput placeholder="Name.." [(ngModel)]="name">
+      </md-input-container>
+
+      <md-input-container>
+      <input mdInput placeholder="Rate.." [(ngModel)]="rate">
       </md-input-container>
 
 
