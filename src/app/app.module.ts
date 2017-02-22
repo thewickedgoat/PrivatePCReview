@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import {MaterialModule} from "@angular/material";
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ReviewsComponent } from './reviews/reviews.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Angular2FontawesomeModule,
+    MaterialModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
