@@ -1,4 +1,23 @@
-<ul *ngFor="let user of users">
-    <fa [name]="'user'" [size]=1 ></fa>{{user.name}}
-</ul>
+<form>
+  <md-input-container>
+    <input name="nameInput" mdInput placeholder="Name.." [(ngModel)]="newUser.name">
+  </md-input-container>
+  <md-input-container>
+    <input name="ageInput" type="number" mdInput placeholder="Age.." [(ngModel)]="newUser.age">
+  </md-input-container>
+  <md-input-container>
+    <input name="emailInput" mdInput placeholder="Email.." [(ngModel)]="newUser.email">
+  </md-input-container>
+  <md-input-container>
+    <input name="passwordInput" type="password" mdInput placeholder="Password.." [(ngModel)]="newUser.password">
+  </md-input-container>
+  <button md-raised-button [color]="'primary'" (click)="RegisterUser()">Register</button>
+</form>
+
+<md-card *ngFor="let user of users">
+  <fa [name]="'user'" [size]=1></fa>
+  {{user.name}}
+</md-card>
+
+
 

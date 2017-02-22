@@ -2,8 +2,9 @@
       <md-card *ngFor="let review of reviews">
         <md-card-title>{{review.name}}</md-card-title>
         <md-card-content>
-          <p>Rate : {{review.rate}}</p>
-          <p>Description : {{review.description}}</p>
+          Rate : {{review.rate}}<fa [name]="'star'" [size]=1 ></fa>
+          <br/>Description : {{review.description}}<fa [name]="'sticky-note'" [size]=1 ></fa>
+          <hr/>
         </md-card-content>
         <button md-raised-button [color]="'primary'">Edit</button>
       </md-card>
