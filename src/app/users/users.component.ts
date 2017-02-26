@@ -35,9 +35,6 @@ export class UsersComponent implements OnInit {
 
   RegisterUser()
   {
-
-
-
     this.users.push(this.newUser);
 
     this.newUser = new User();
