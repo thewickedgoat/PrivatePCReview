@@ -16,13 +16,13 @@ export class UsersComponent implements OnInit {
 
   constructor() {
     this.users = [
-      {name: "Ole", age: 12, email: "retard@live.org"},
-      {name: "Frans", age: 32, email: "retard7@live.org"},
-      {name: "Biver", age: 62, email: "retard2@live.org"},
-      {name: "Helmut", age: 13, email: "retard3@live.org"},
-      {name: "Ubruli", age: 23, email: "retard4@live.org"},
-      {name: "IziPizi", age: 99, email: "retard5@live.org"},
-      {name: "Paul", age: 11, email: "retard6@live.org"},
+      {name: "Ole", age: 12, email: "Retard@live.org", password: "1234"},
+      {name: "Frans", age: 32, email: "Retard7@live.org", password: "1234"},
+      {name: "Biver", age: 62, email: "Retard2@live.org", password: "1234"},
+      {name: "Helmut", age: 13, email: "Retard3@live.org", password: "1234"},
+      {name: "Ubruli", age: 23, email: "Retard4@live.org", password: "1234"},
+      {name: "IziPizi", age: 99, email: "Retard5@live.org", password: "1234"},
+      {name: "Paul", age: 11, email: "Retard6@live.org", password: "1234"},
       ];
 
       this.newUser = new User();

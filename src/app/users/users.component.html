@@ -15,17 +15,17 @@
 </form>
 
 <md-card *ngFor="let user of users">
-  <p><fa [name]="'user'" [size]=1></fa>
-    {{user.name}}</p>
+  <h1><fa [name]="'user'" [size]=1></fa>
+    {{user.name}}</h1>
   <hr/>
   <p><fa [name]="'envelope'" [size]=1></fa>
   {{user.email}}</p>
   <br/>
-  <p><fa [name]="'calendar'" [size]=1></fa>
-  {{user.age}}</p>
-  <br/>
   <p><fa [name]="'lock'" [size]=1></fa>
-  {{user.password}}</p>
+    {{user.password}}</p>
+  <br/>
+  <p><fa [name]="'calendar'" [size]=1></fa>
+    {{user.age}}</p>
 </md-card>
 
 
