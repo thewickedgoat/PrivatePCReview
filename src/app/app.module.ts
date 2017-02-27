@@ -11,9 +11,15 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component'
 import {Routes, RouterModule} from "@angular/router";
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LoginComponent } from './login/login.component';
+import { LoginViewComponent } from './login/login-view.component';
+import {UsersService} from "./users/users.service";
+import { ReviewService} from "./reviews/review.service";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent},
   { path:'reviews', component: ReviewsComponent},
   { path: 'users', component: UsersComponent}
 ];
@@ -25,6 +31,8 @@ const routes: Routes = [
     ReviewsComponent,
     ToolbarComponent,
     HomeComponent,
+    LoginComponent,
+    LoginViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +40,10 @@ const routes: Routes = [
     HttpModule,
     Angular2FontawesomeModule,
     MaterialModule,
+    FlexLayoutModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [UsersService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

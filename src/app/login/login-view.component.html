@@ -1,0 +1,24 @@
+<button md-mini-fab routerLink="/"><fa [name]="'arrow-left'"></fa></button>
+<div fxFlexFill [fxLayout]="row" fxLayoutAlign="center center">
+  <md-card-content style="margin: 0; width: 200px;">
+    <fa [name]="'lock'"></fa>Login
+    <p *ngIf="signInError && signInError.length > 0"
+       style="color: darkred; font-size: x-small;">
+      <fa [name]="'exclamation-circle'"></fa>
+      {{signInError}}
+    </p>
+    <md-input-container>
+      <input mdInput placeholder="Email" [(ngModel)]="user.email">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placerholder="Password" type="password" [(ngModel)]="user.password">
+    </md-input-container>
+  </md-card-content>
+
+  <md-card-content>
+    <md-card-actions class="example-button-row">
+      <button class="login-button" md-button routerLink="/lostPassword">Lost password</button>
+      <button (click)="tryLogin()"md-raised-button color="primary">Sign in</button>
+    </md-card-actions>
+  </md-card-content>
+</div>

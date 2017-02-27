@@ -13,8 +13,7 @@ export class ReviewsComponent implements OnInit {
 
   constructor() {
     this.reviews = [
-      {name : "Amd-MasterRace", description : "Much race such master", rate : 4.9},
-      {name : "Amd-Budget", description : "Such budget much Amd", rate : 3.9}
+
     ]
 
     this.newReview = new Review();
