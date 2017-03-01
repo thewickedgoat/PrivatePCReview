@@ -1,10 +1,14 @@
-.example-button-row {
+
+.example-button-row{
   display: flex;
   align-items: right;
   justify-content: space-around;
 }
 
-.login-button {
+.login-button{
   text-decoration: underline;
   font-size: x-small;
+}
+.error-message{
+  color: darkred; font-size: x-small;
 }

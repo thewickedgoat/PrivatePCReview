@@ -12,11 +12,16 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './home/home.component'
 import {Routes, RouterModule} from "@angular/router";
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { LoginComponent } from './login/login.component';
-import { LoginViewComponent } from './login/login-view.component';
+import { LoginComponent } from './auth/login/login.component';
+import { LoginViewComponent } from './auth/login/login-view.component';
+
+import {UsersService} from "./users/users.service";
+import { ReviewService} from "./reviews/review.service";
+import {AuthService} from "./auth/auth.service";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent},
   { path:'reviews', component: ReviewsComponent},
   { path: 'users', component: UsersComponent}
 ];
@@ -40,7 +45,7 @@ const routes: Routes = [
     FlexLayoutModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [UsersService, ReviewService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

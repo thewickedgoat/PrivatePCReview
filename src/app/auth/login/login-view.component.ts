@@ -1,5 +1,7 @@
 import {Component, OnInit, Input, Output} from '@angular/core';
-import {EventEmitter} from "@angular/common/src/facade/async";
+import {EventEmitter} from "@angular/forms/src/facade/async";
+import {UsersService} from "../../users/users.service";
+import {User} from "../../users/user";
 
 @Component({
   selector: 'mrr-login-view',
@@ -14,14 +16,18 @@ export class LoginViewComponent implements OnInit {
   @Input()
   signInError : string;
 
+  @Input()
+  tryingToLogIn: boolean;
+
   @Output('login')
   tryLoginEmitter = new EventEmitter();
 
-  tryLogin()
-  {
+  tryLogin(){
     this.tryLoginEmitter.emit(this.user);
+}
+  constructor(private userService: UsersService) {
+    this.user = new User();
   }
-  constructor() { }
 
   ngOnInit() {
   }

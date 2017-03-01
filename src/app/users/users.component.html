@@ -1,3 +1,4 @@
+<mrr-toolbar></mrr-toolbar>
 <form>
   <md-input-container>
     <input name="nameInput" mdInput placeholder="Name.." [(ngModel)]="newUser.name">
@@ -11,7 +12,7 @@
   <md-input-container>
     <input name="passwordInput" type="password" mdInput placeholder="Password.." [(ngModel)]="newUser.password">
   </md-input-container>
-  <button md-raised-button [color]="'primary'" (click)="RegisterUser()">Register</button>
+  <button md-raised-button [color]="'primary'" (click)="registerUser()">Register</button>
 </form>
 
 <md-card *ngFor="let user of users">
