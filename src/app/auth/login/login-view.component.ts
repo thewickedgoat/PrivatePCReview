@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, Output} from '@angular/core';
 import {EventEmitter} from "@angular/forms/src/facade/async";
-import {UsersService} from "../../users/users.service";
 import {User} from "../../users/user";
 
 @Component({
@@ -24,8 +23,8 @@ export class LoginViewComponent implements OnInit {
 
   tryLogin(){
     this.tryLoginEmitter.emit(this.user);
-}
-  constructor(private userService: UsersService) {
+  }
+  constructor() {
     this.user = new User();
   }
 

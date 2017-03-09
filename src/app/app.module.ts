@@ -18,12 +18,32 @@ import { LoginViewComponent } from './auth/login/login-view.component';
 import {UsersService} from "./users/users.service";
 import { ReviewService} from "./reviews/review.service";
 import {AuthService} from "./auth/auth.service";
+import { CreateUserComponent } from './users/create-user/create-user.component';
+import { CreateUserViewComponent } from './users/create-user/create-user-view.component';
+import { UpdateUserComponent } from './users/update-user/update-user.component';
+import { UpdateUserViewComponent } from './users/update-user/update-user-view.component';
+import { AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBZTtLluvg1QZTeu8gvvYI0Wuq4YdnEsCY",
+  authDomain: "mrr-rest.firebaseapp.com",
+  databaseURL: "https://mrr-rest.firebaseio.com",
+  storageBucket: "mrr-rest.appspot.com",
+  messagingSenderId: "782483373971"
+};
+
+export const firebarebaseLoginConfig = {
+  provider: AuthProviders.Password,
+  method: AuthMethods.Password
+}
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent},
   { path:'reviews', component: ReviewsComponent},
-  { path: 'users', component: UsersComponent}
+  { path: 'users', component: UsersComponent},
+  { path: 'create-user', component: CreateUserComponent},
+  { path: 'users/:$key', component: UpdateUserComponent}
 ];
 
 @NgModule({
@@ -35,6 +55,10 @@ const routes: Routes = [
     HomeComponent,
     LoginComponent,
     LoginViewComponent,
+    CreateUserComponent,
+    CreateUserViewComponent,
+    UpdateUserComponent,
+    UpdateUserViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +67,8 @@ const routes: Routes = [
     Angular2FontawesomeModule,
     MaterialModule,
     FlexLayoutModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AngularFireModule.initializeApp(firebaseConfig, firebarebaseLoginConfig)
   ],
   providers: [UsersService, ReviewService, AuthService],
   bootstrap: [AppComponent]

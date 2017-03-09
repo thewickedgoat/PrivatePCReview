@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {User} from './User';
 import {forEach} from "@angular/router/src/utils/collection";
 import {UsersService} from "./users.service";
+import {EventEmitter} from "@angular/common/src/facade/async";
+import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-users',
@@ -10,22 +13,40 @@ import {UsersService} from "./users.service";
 })
 export class UsersComponent implements OnInit {
 
-  newUser: User;
 
-  users: User[];
+  users: Observable<User[]>;
 
-  constructor(private userService: UsersService) {
+  @Output()
+  create = new EventEmitter();
+
+  constructor(private userService: UsersService, private router: Router) {
 
       this.users = userService.getUsers();
-      this.newUser = new User();
+
   }
 
   ngOnInit() {
   }
 
-  registerUser()
+  createUser()
   {
-    this.userService.addUser(this.newUser);
+    //dumb
+    this.create.emit();
+    //smart
+    this.router.navigate(['/users/create-user']);
   }
+
+
+  deleteUser(user: User)
+  {
+    this.userService.deleteUser(user);
+  }
+
+  updateUser(user: User)
+  {
+    this.router.navigate(["/users/" + user.$key])
+  }
+
+
 
 }

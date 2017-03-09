@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   tryingToLogin: boolean;
 
   constructor(public loginValidationBar: MdSnackBar, private router : Router, private authService: AuthService) {
+
   }
 
   login(user){
