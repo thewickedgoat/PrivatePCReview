@@ -1,8 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
+  import {Component, OnInit, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import {MdSnackBar} from '@angular/material';
 import {AuthService} from "../auth.service";
 import {Subscription} from "rxjs";
+  import {AuthUser} from "../auth-user";
 
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  login(user){
+  login(user : AuthUser){
     this.tryingToLogin = true;
     if(this.request)
     {
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     }
     this.request = this.authService
       .login(user.email, user.password)
+      .delay(1000)
       .subscribe((lUser) => {
         if(lUser)
         {

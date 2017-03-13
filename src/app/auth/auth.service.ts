@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {User} from "../users/user";
-import {UsersService} from "../users/users.service";
 import {Observable} from "rxjs";
 import {AngularFire, FirebaseAuthState} from "angularfire2";
+
 @Injectable()
 export class AuthService {
 
@@ -12,9 +11,15 @@ export class AuthService {
   login(email, password) : Observable<FirebaseAuthState>{
     let promise = <Promise<FirebaseAuthState>> this.af.auth.login({
       email: email,
-      password: password
-    });
+      password: password,
+    })
     return Observable.fromPromise(promise);
+  }
+
+  isAuthenticated() : Observable<boolean>{
+    return this.af.auth
+      .take(1)
+      .map((authState: FirebaseAuthState) => !!authState)
   }
 
   currentUser() : Observable<FirebaseAuthState>{

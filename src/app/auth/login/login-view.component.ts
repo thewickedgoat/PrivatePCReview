@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, Output} from '@angular/core';
 import {EventEmitter} from "@angular/forms/src/facade/async";
 import {User} from "../../users/user";
+import {AuthUser} from "../auth-user";
 
 @Component({
   selector: 'mrr-login-view',
@@ -9,8 +10,7 @@ import {User} from "../../users/user";
 })
 export class LoginViewComponent implements OnInit {
 
-  @Input()
-  user : any;
+  user : AuthUser;
 
   @Input()
   signInError : string;
@@ -19,13 +19,13 @@ export class LoginViewComponent implements OnInit {
   tryingToLogIn: boolean;
 
   @Output('login')
-  tryLoginEmitter = new EventEmitter();
+  tryLoginEmitter = new EventEmitter<AuthUser>();
 
   tryLogin(){
     this.tryLoginEmitter.emit(this.user);
   }
   constructor() {
-    this.user = new User();
+    this.user = new AuthUser();
   }
 
   ngOnInit() {

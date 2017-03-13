@@ -22,7 +22,13 @@ import { CreateUserComponent } from './users/create-user/create-user.component';
 import { CreateUserViewComponent } from './users/create-user/create-user-view.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { UpdateUserViewComponent } from './users/update-user/update-user-view.component';
-import { AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
+import { AngularFireModule, AuthMethods, AuthProviders} from "angularfire2";
+import {AuthGuard} from "./auth/auth-guard";
+import { UsersViewComponent } from './users/users-view/users-view.component';
+import { UsersListComponent } from './users/users-view/users-list.component';
+import { ReviewViewComponent } from './reviews/review-view/review-view.component';
+import { ReviewListComponent } from './reviews/review-view/review-list.component';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBZTtLluvg1QZTeu8gvvYI0Wuq4YdnEsCY",
@@ -38,10 +44,10 @@ export const firebarebaseLoginConfig = {
 }
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
-  { path:'reviews', component: ReviewsComponent},
-  { path: 'users', component: UsersComponent},
+  { path: 'reviews', component: ReviewViewComponent, canActivate: [AuthGuard]},
+  { path: 'users', component: UsersViewComponent, canActivate: [AuthGuard]},
   { path: 'create-user', component: CreateUserComponent},
   { path: 'users/:$key', component: UpdateUserComponent}
 ];
@@ -59,6 +65,10 @@ const routes: Routes = [
     CreateUserViewComponent,
     UpdateUserComponent,
     UpdateUserViewComponent,
+    UsersViewComponent,
+    UsersListComponent,
+    ReviewViewComponent,
+    ReviewListComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +80,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig, firebarebaseLoginConfig)
   ],
-  providers: [UsersService, ReviewService, AuthService],
+  providers: [UsersService, ReviewService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
