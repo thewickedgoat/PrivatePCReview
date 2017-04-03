@@ -44,10 +44,10 @@ export const firebarebaseLoginConfig = {
 }
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'reviews', component: ReviewViewComponent, canActivate: [AuthGuard]},
-  { path: 'users', component: UsersViewComponent, canActivate: [AuthGuard]},
+  { path: 'reviews', component: ReviewViewComponent},
+  { path: 'users', component: UsersViewComponent},
   { path: 'create-user', component: CreateUserComponent},
   { path: 'users/:$key', component: UpdateUserComponent}
 ];
